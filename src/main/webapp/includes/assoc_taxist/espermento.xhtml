@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <h:form>
+
+        <p:panelGrid columns="2" style="position: absolute; top:100px; left: 200px;">
+            
+            <f:facet name="header">
+                <h:outputText value="Cadastrar Associado Taxista" />
+            </f:facet>
+            
+            <p:outputLabel value="Nome:" />
+            <p:inputText size="45" value="#{assocTaxistController.nomeTaxist}"/>            
+
+            <p:outputLabel value="Número de BI:" />
+            <p:inputText size="30" value="#{assocTaxistController.biTaxistac}"/>
+            
+             <p:outputLabel value="Número de Carta de Condução:" />
+             <p:inputText size="30" value="#{assocTaxistController.numCondTaxist}"/>
+
+            <p:outputLabel value="Número de Telefone:" />
+            <p:inputText size="15" value="#{assocTaxistController.telTaxist}" />
+            
+
+            <p:outputLabel value="Data de Nascimento:" />
+            <p:inputText size="15" id="dataNasc" 
+                        value="#{assocTaxistController.datNascTaxist}"  />
+
+            <p:outputLabel value="Data de Cadastro:" />
+            <p:inputText size="15" id="dataCadastro" 
+                        value="#{assocTaxistController.datCadastTaxist}"  />
+
+
+            <p:outputLabel value="Cargo:" />
+            <p:inputText size="45" value="#{assocTaxistController.cargoTaxis}" />
+
+            <p:outputLabel value="Data do Cargo:" />
+            <p:inputText size="15" id="dataCargo" 
+                        value="#{assocTaxistController.datCargo}" />
+
+
+            <p:outputLabel />
+            <p:outputLabel />
+            
+            <f:facet name="footer">
+                <p:toolbar>                    
+                    <p:toolbarGroup align="right">
+                        <p:commandButton value="Cadastrar"
+                                         action="#{assocTaxistController.createAssocTaxist()}"
+                                         icon="ui-icon-disk" 
+                                         />
+                    </p:toolbarGroup>
+                </p:toolbar>
+            </f:facet>
+
+        </p:panelGrid>  
+
+    </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                >
+
+    <h:form>
+        <p:menubar>
+
+            <p:menuitem value="Página Principal" outcome="/pages/principal" icon="ui-icon-home"> 
+            </p:menuitem>             
+
+            <p:submenu label="Cadastrar" icon="ui-icon-plus">
+                <p:menuitem value="Associado Taxista" outcome="/pages/assoc_taxist/cadast_AssociadT" /> 
+                <p:menuitem value="Associado Simples" outcome="/pages/assoc_simples/cadast_AssociadS"/> 
+            </p:submenu>  
+
+            <p:submenu label="Registrar" icon="ui-icon-plus">                   
+                <p:menuitem value="Relátorio" outcome="/pages/relatorio/cadast_relat"/>
+                <p:menuitem value="Cota" outcome="/pages/cota/cadast_cota"/>
+                <p:menuitem value="Carro" outcome="/pages/carro/cadast_carro"/>
+            </p:submenu>
+
+            <p:submenu label="Visualizar">
+
+                <p:submenu label="Associado">
+                    <p:menuitem value="Taxista" outcome="/pages/assoc_taxist/listar_assocT"/>
+                    <p:menuitem value="Simples" outcome="/pages/assoc_simples/listar_assocS"/>
+                    <p:menuitem value="Todos" />
+                </p:submenu>
+
+                <p:menuitem value="Relátorio" outcome="/pages/relatorio/listar_relat"/>
+                <p:menuitem value="Cota" outcome="/pages/cota/listar_cota"/>
+                <p:menuitem value="Carro" outcome="/pages/carro/listar_carro"/>
+            </p:submenu>   
+
+            <p:submenu label="Pesquisar" icon="ui-icon-search" >  
+                <p:menuitem value="Telefone" url="#"/>
+                <p:menuitem value="Carro" url="#"/>
+                <p:menuitem value="Associado" url="#"/>
+            </p:submenu>
+
+            <ui:insert name="top">
+                <h:form>
+                    <p:menubar> 
+                        <p:themeSwitcher value="#{assocTaxistController.tema}">
+                            <f:selectItems value="#{temasDisponiveis.temas}" />
+                        </p:themeSwitcher>
+                    </p:menubar>>
+                </h:form>
+            </ui:insert>
+
+
+
+
+        </p:menubar>
+
+
+        <p:themeSwitcher value="#{assocTaxistController.tema}">
+            <f:selectItems value="#{temasDisponiveis.temas}" />
+        </p:themeSwitcher>
+
+
+    </h:form>
+
+
+</ui:composition >    
+

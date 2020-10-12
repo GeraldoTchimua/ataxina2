@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                >
+
+    <h1>Lista dos Associados Taxistas</h1>
+
+    <h:form id="form">
+        <p:dataTable value="#{assocTaxistController.allAssocTaxist}"
+                     var="assocT" paginator="true" 
+                     paginatorPosition="bottom" rowKey="#{assocT.idassocTaxista}">
+
+            <p:column headerText="ID">
+                <h:outputText value="#{assocT.idassocTaxista}"/>
+            </p:column>
+
+            <p:column headerText="Nome">
+                <h:outputText value="#{assocT.nomeTaxist}"/>
+            </p:column>
+            <p:column headerText="Número de BI">
+                <h:outputText value="#{assocT.biTaxistac}"/>
+            </p:column>
+
+            <p:column headerText="Número da Carta de Condução">
+                <h:outputText value="#{assocT.numCondTaxist}"/>
+            </p:column>
+
+            <p:column headerText="Telefone">
+                <h:outputText value="#{assocT.telTaxist}"/>
+            </p:column>
+
+            <p:column headerText="Data de Nascimento">
+                <h:outputText value="#{assocT.datNascTaxist}"/>
+            </p:column>
+
+            <p:column headerText="Data de Cadastro">
+                <h:outputText value="#{assocT.datCadastTaxist}"/>
+            </p:column>
+
+            <p:column headerText="Cargo">
+                <h:outputText value="#{assocT.cargoTaxis}"/>
+            </p:column>
+
+            <p:column headerText="Data de Inicio do Cargo">
+                <h:outputText value="#{assocT.datCargo}"/>
+            </p:column>
+
+
+            <p:column style="width: 100px; text-align: center">
+
+                <p:commandButton icon="ui-icon-pencil" update=":form:userEdit"
+                                 oncomplete="PF('editDialog').show()">
+                    <f:setPropertyActionListener value="#{assocT}" target="#{assocTaxistController.selectedAssocTaxist}"/>                                         
+                </p:commandButton>
+
+                 <p:commandButton icon="ui-icon-trash"
+                                     oncomplete="PF('eliminarDialog').show()"
+                                     />                                         
+                
+
+                <p:commandButton id="viewButton"   icon="ui-icon-search" />
+            </p:column>
+
+        </p:dataTable>
+
+        <p:dialog header="Editar Associado" widgetVar="editDialog" modal="true" 
+                  showEffect="fade" hideEffect="fade" resizable="false" style="align-content: center;">
+
+            <p:outputPanel id="userEdit" style="text-align: center;">                    
+                <p:panelGrid columns="2" 
+                             rendered="#{not empty assocTaxistController.selectedAssocTaxist}"
+                             columnClasses="label, value">
+
+                    <h:outputText value="NOME"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.nomeTaxist}"/>
+
+                    <h:outputText value="Número de BI"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.biTaxistac}"/>
+
+                    <h:outputText value="Carta de Condução"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.numCondTaxist}"/>
+
+                    <h:outputText value="Telefone"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.telTaxist}"/>
+
+                    <h:outputText value="Data de Nascimento"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.datNascTaxist}"/>
+
+                    <h:outputText value="Data de Cadastro"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.datCadastTaxist}"/>
+
+                    <h:outputText value="Cargo"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.cargoTaxis}"/>
+
+                    <h:outputText value="Data de Inicio do Cargo"/>
+                    <p:inputText value="#{assocTaxistController.selectedAssocTaxist.datCargo}"/>
+                </p:panelGrid>
+
+                <p:commandButton value="Actualizar" icon="fa fa-fw fa-pencil" 
+                                 action="#{assocTaxistController.updateAssocTaxist()}"/>
+            </p:outputPanel>
+
+        </p:dialog>
+
+        <p:dialog header="Eliminar Associado" widgetVar="eliminarDialog" modal="true" 
+                  showEffect="explode" hideEffect="explode" resizable="false" style="align-content: center;">
+
+            <p:outputPanel id="userEliminar" style="text-align: center;" >      
+
+                <h:outputText value="Deseja Eliminar este registro?"/>
+
+                <p:panelGrid columns="2" style="align-content: center;">        
+
+                    <p:commandButton value="Sim" action="#{assocTaxistController.deleteAssocTaxist(assocTaxist)}"
+                                     oncomplete="PF('eliminarDialog').hide();"/>
+
+                    <p:commandButton value="Não" onclick="PF('eliminarDialog').hide();"/>    
+                </p:panelGrid>
+
+            </p:outputPanel>
+        </p:dialog>
+
+    </h:form>
+</ui:composition>

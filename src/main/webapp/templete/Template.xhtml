@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="/cssLayout.css"/>
+         <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+         <h:outputStylesheet library="css" name="/foundation.min.css"/>
+         <h:outputStylesheet library="css" name="/main.css"/>         
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+ <p:layout fullPage="true">
+
+            <p:layoutUnit position="north">
+                <ui:insert name="menu"/>
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="center">
+
+                <ui:insert name="conteudo"/>
+
+                <ui:insert name="listar_assocT"/>
+                <ui:insert name="formulario_AssocT"/> 
+
+                <ui:insert name="formulario_AssocS"/>
+                <ui:insert name="listar_assocS"/>
+                
+                 <ui:insert name="relatorio"/>
+                 
+                 <ui:insert name="cota"/>
+                 
+                 <ui:insert name="formulario_carro"/>
+                 <ui:insert name="listar_carro"/>
+
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="south">
+                <ui:insert name="rodape"/>            
+            </p:layoutUnit>
+
+        </p:layout>
+
+
+    </h:body>
+
+</html>

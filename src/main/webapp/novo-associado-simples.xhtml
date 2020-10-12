@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title> Cadastrar associado simples</title>
+    </h:head>
+    <h:body>
+         <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Nome Associado:" for="nomeAssocSimples" />
+                    <p:inputText id="nomeAssocSimples" value="#{assocSimplesCDIBean.assocSimple.nome}" title="NomeAssocSimples" required="true" requiredMessage="The NomeAssocSimples field is required."/>
+                    
+                    <p:outputLabel value="BI:" for="biSimples" />
+                    <p:inputText id="biSimples" value="#{assocSimplesCDIBean.assocSimple.numBi}" title="BiSimples" required="true" requiredMessage="The BiSimples field is required."/>
+                    
+                    <p:outputLabel value="Telefone:" for="telAssocSimples" />
+                    <p:inputText id="telAssocSimples" value="#{assocSimplesCDIBean.assocSimple.telefone}" title="TelAssocSimples" />
+                    
+                    <p:outputLabel value="Data de Nascimento" for="dataNascAssocSimples" />
+                    <p:calendar id="dataNascAssocSimples" value="#{assocSimplesCDIBean.assocSimple.datNasc}" title="DataNascAssocSimples" />
+                    
+                    <p:outputLabel value="Data de Cadastro:" for="dataCadastAssocSimples" />
+                    <p:calendar id="dataCadastAssocSimples" value="#{assocSimplesCDIBean.assocSimple.datCastro}" title="DataCadastAssocSimples" />                
+                    
+                    <p:outputLabel value="Cargo:" for="cargoAssocSimples" />
+                    <p:inputText id="cargoAssocSimples" value="#{assocSimplesCDIBean.assocSimple.cargo}" title="Cargo" required="false"/>
+                    
+                    <p:outputLabel value="Data que ocupou o Cargo:" for="datCargo" />
+                    <p:calendar id="datCargo" value="#{assocSimplesCDIBean.assocSimple.datCargo}" title="DatCargo" required="false" />
+                    
+
+                </h:panelGrid>
+
+                <h:commandButton value="Registrar" actionListener="#{assocSimplesCDIBean.save}"/>
+            </h:form>
+        </f:view>
+       
+    </h:body>
+</html>
+

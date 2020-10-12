@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                >
+
+    <h:form>
+
+        <p:panelGrid columns="2" style="position: absolute; top:20px; left: 120px;">
+
+            <f:facet name="header">
+                <h:outputText value="Cadastrar Relatório" />
+            </f:facet>
+
+            <p:outputLabel value="Assunto:" />
+            <p:inputTextarea required="true" cols="150" rows="2" />
+
+            <p:outputLabel value="Descrição" />  
+            <p:editor value="#{bean.text}" />
+
+            <p:outputLabel value="Data" />
+            <p:calendar size="12"  pattern="dd/MM/yyyy"
+                        value="#{datacadastroBean.lancamento.dataNascS}" 
+                        mode="popup" showOn="button" locale="pt_BR"/>  
+
+            <p:outputLabel />
+            <p:outputLabel />
+            <f:facet name="footer">
+                <p:toolbar>
+                    <p:toolbarGroup align="right">
+                        <p:commandButton value="Salvar"
+                                         action="#{assocTaxistBean.adicionar()}"
+                                         icon="ui-icon-disk" update="@form"
+                                         />
+                    </p:toolbarGroup>
+
+                </p:toolbar>
+
+            </f:facet>
+        </p:panelGrid>
+
+    </h:form>
+
+
+
+
+
+</ui:composition>

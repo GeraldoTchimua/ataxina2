@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                >
+    <f:metadata>
+        <f:viewAction action="#" />
+    </f:metadata>
+    <h1>Lista dos Carros</h1>
+    <h:form>
+        <p:dataTable value="#{assocTaxistBean.assocTaxistas}"
+                     var="taxista" paginator="true" rows="5"
+                     paginatorPosition="bottom" >
+            
+            <p:column headerText="Matrícula">
+                <h:outputText value="#{taxista.idtaxist}"/>
+            </p:column>
+            
+            <p:column headerText="Modelo">
+                <h:outputText value="#{taxista.nomeTaxist}"/>
+            </p:column>
+            <p:column headerText="Propietário:">
+                 <h:outputText value="#{taxista.biTaxist}"/>
+            </p:column>
+            
+                      
+            <p:column headerText="Data:">
+                <h:outputText value="#{taxista.dataCargo}"/>
+            </p:column>
+        
+            
+            <p:column>
+                <p:button icon="ui-icon-pencil" title="Editar">
+                    <f:param name="id" value="#{taxista.idtaxist}" />
+                </p:button>
+            </p:column>
+            
+            <p:commandButton icon="ui-icon-trash" title="Excluir" process="@this"
+                             update="@form" action="#{taxista.Excluir}">
+                <f:setPropertyActionListener value=""
+                                             target="" />
+            </p:commandButton>
+            
+        </p:dataTable>
+    </h:form>
+</ui:composition>
