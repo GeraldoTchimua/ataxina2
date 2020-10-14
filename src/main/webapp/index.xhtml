@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>RH - Curso de Programação Web com Jakarta EE - Jakarta Server Faces</title>
+        <meta name="author" content="The Author"></meta>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="RH" brandHref="#" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:navLink value="Municipios" href="lista-municipios.jsf"></b:navLink>
+                <b:navLink value="Municipios Por Letra" href="lista-municipios-by-letra-nome.jsf"></b:navLink>
+                 <b:navLink value="Municipios Filtro" href="filtro-municipios.jsf"></b:navLink>
+                <b:dropMenu value="Dropdown">
+                    <b:navLink value="Action" href="#"></b:navLink>
+                    <b:navLink value="Another action" href="#"></b:navLink>
+                    <b:navLink value="Something else here" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Nav header"></b:navLink>
+                    <b:navLink value="Separated link" href="#"></b:navLink>
+                    <b:navLink value="One more separated link" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+            <h:form styleClass="navbar-form navbar-right">
+                <div class="form-group">
+                    <b:inputText placeholder="Email" fieldSize="sm"/>
+                    <!--input type="text" class="form-control" placeholder="Search"/-->
+                </div>
+                <div class="form-group">
+                    <b:inputText placeholder="Password" fieldSize="sm"/>
+                </div> 
+                #{' '}
+                <b:commandButton action="a" value="Sign in" look="success" icon="chevron-right" iconAlign="right"/>
+            </h:form>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h1>Gestão de Recursos Humanos</h1>
+                <p>Gestão de recursos humanos ou gestão de pessoas é um conjunto de habilidades, métodos e práticas que visa o desenvolvimento e potencialização do capital humano de uma organização, bem como a melhor gestão dos comportamentos e aproveitamento dos diferentes talentos e características encontradas no quadro de colaboradores.
+                </p>
+                <p>Esta aplicação vai auxiliar esta actividade no dia da dia do dever da empresa Esplendor - Doces &amp; Salgados</p>
+                <p>
+
+                    <b:modal id="amodal" title="Sistema de Gestão de Recursos Humanos" styleClass="modalPseudoClass">
+                        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                        <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                        <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                        <f:facet name="footer">
+                            <b:button value="Close" dismiss="modal" />
+                            <b:button value="Ok" look="primary" dismiss="modal" />
+                        </f:facet>
+                    </b:modal>
+                    <b:row>
+                        <b:column span="3">
+                            <a id="atrigger" class="btn btn-primary btn-lg" href="#amodal" data-toggle="modal">Sobre o sistema</a>
+                        </b:column>
+
+
+
+                    </b:row>
+
+                </p>
+            </b:container>
+
+        </b:jumbotron>
+        <b:container>
+            <b:row>
+                <b:column col-md="3">
+                    <h2>Departamentos</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="departamento" value="Gestão de departamentos»" class ="btn btn-primary btn-md"/></p>
+                </b:column>
+                <b:column col-md="3">
+                    <h2>Funcionarios</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="inserir-funcionario" value="Novo»" class ="btn btn-primary btn-md"/></p>
+                    <p><b:button outcome="lista-funcionarios" value="Lista»" class ="btn btn-primary btn-md"/></p>
+                </b:column>
+                <b:column col-md="3">
+                    <h2>Formação</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="formacao" value="Cursos e Formação»" class ="btn btn-primary btn-md"/></p>
+                </b:column>
+                <b:column col-md="3">
+                    <h2>Presenças e Faltas</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <b:button outcome="faltas" value="Faltas»" class ="btn btn-primary btn-md"/>
+                    <b:button outcome="presencas" value="Presenças»" class ="btn btn-primary btn-md"/>
+                </b:column>
+            </b:row>
+            <hr/>
+            <footer>
+                <p>© Angola 2020</p>
+            </footer>
+        </b:container>
+
+    </h:body>
+</html>
